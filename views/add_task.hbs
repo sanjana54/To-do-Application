@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <title>to-do-list</title>
+</head>
+
+<body>
+
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">New Task</li>
+  </ol>
+</nav>
+
+
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+<form class="row g-3 needs-validation" method="POST" action="/addtask" novalidate>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" value="{{this.task}}" placeholder="Task" name="task">
+      <label for="floatingInput">Task</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control" id="floatingInput" value="{{this.date_added}}" placeholder="Date" name="date">
+      <label for="floatingInput">Date</label>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave task details here" id="task_detail" name="task_detail" style="height: 100px">{{this.task_details}}</textarea>
+      <label for="task_detail">Task Detail</label>
+    </div>
+  </div>
+
+  <div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+  
+</form>
+
+</body>
+</html>
